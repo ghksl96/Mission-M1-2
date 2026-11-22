@@ -53,7 +53,7 @@ def chat_with_ai(req: ChatRequest):
     }
 
     try:
-        res = httpx.post(url, json=payload, timeout=30.0)
+        res = httpx.post(url, json=payload, timeout=60.0)
         if res.status_code != 200:
             raise HTTPException(status_code=500, detail=f"AI 오류 ({res.status_code}): {res.text}")
         ai_reply = res.json()["candidates"][0]["content"]["parts"][0]["text"]
