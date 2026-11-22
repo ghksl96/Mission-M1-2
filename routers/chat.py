@@ -39,15 +39,15 @@ def chat_with_ai(req: ChatRequest):
 
     messages.append({"role": "user", "content": req.message})
 
-    # 4. OpenAI GPT 호출
+    # 4. Gemini API 호출
     try:
-       response = client.chat.completions.create(
+        response = client.chat.completions.create(
             model="gemini-2.5-flash",
             messages=[{"role": "system", "content": system_prompt}] + messages
         )
         ai_reply = response.choices[0].message.content
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"OpenAI 오류: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"AI 오류: {str(e)}")
 
     messages.append({"role": "assistant", "content": ai_reply})
 
