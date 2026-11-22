@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 학습 데이터 분석 챗봇</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="config.js"></script>
+</head>
+<body>
+  <header>
+    <h1>📊 AI 학습 데이터 분석 챗봇</h1>
+    <p class="notice">※ 무료 서버(Render) 특성상 첫 요청 시 30초~1분 정도 걸릴 수 있습니다.</p>
+  </header>
+
+  <div class="container">
+    <!-- 왼쪽: 대화 기록 -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>💬 대화 기록</h2>
+        <button id="new-chat-btn">+ 새 대화</button>
+      </div>
+      <ul id="conversation-list"></ul>
+    </aside>
+
+    <!-- 가운데: 요약 + 채팅 -->
+    <main class="chat-section">
+      <section class="summary-box" id="summary-box">
+        <h3>📈 현재 데이터 요약</h3>
+        <div id="summary-content">요약 정보를 불러오는 중...</div>
+      </section>
+
+      <div class="chat-box" id="chat-box">
+        <div class="msg assistant">안녕하세요! 저장된 학습 데이터를 바탕으로 무엇이든 물어보세요.</div>
+      </div>
+
+      <div id="loading" class="loading hidden">🤖 AI가 데이터를 분석하며 답변을 작성 중입니다...</div>
+
+      <form id="chat-form" class="chat-form">
+        <input type="text" id="chat-input" placeholder="예: 최근 내 공부 시간 추세가 어때?" required />
+        <button type="submit">전송</button>
+      </form>
+    </main>
+
+    <!-- 오른쪽: 데이터 관리 (CRUD) -->
+    <aside class="data-section">
+      <h2>🗂️ 데이터 관리 (CRUD)</h2>
+      <form id="data-form" class="data-form">
+        <input type="date" id="data-date" required />
+        <input type="number" id="data-value" placeholder="학습 시간(분)" required />
+        <input type="text" id="data-memo" placeholder="메모 (예: FastAPI 복습)" />
+        <button type="submit">데이터 추가</button>
+      </form>
+      <ul id="data-list" class="data-list"></ul>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
