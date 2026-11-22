@@ -42,7 +42,7 @@ def chat_with_ai(req: ChatRequest):
     # 4. Gemini API 호출
     try:
         response = client.chat.completions.create(
-            model="gemini-2.5-pro",
+            model="gemini-2.5-flash",
             messages=[{"role": "system", "content": system_prompt}] + messages
         )
         ai_reply = response.choices[0].message.content
