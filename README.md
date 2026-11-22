@@ -43,9 +43,36 @@
 
 ## 💻 로컬 실행 방법
 
+1. 프론트엔드 배포 화면 (데이터 요약 + AI 채팅) <br>
+
+ <img width="1908" height="783" alt="이미지1" src="https://github.com/user-attachments/assets/4c2a825c-dbda-46a8-9284-0e6be0470ad1" />
+ <br><br>
+
+ 2. 백엔드 배포 확인 (Swagger UI) 
+
+<img width="1226" height="848" alt="Screenshot_6" src="https://github.com/user-attachments/assets/b7611623-0c89-486f-a8c0-d9420b3d3d63" />
+<br><br>
+
+3. 데이터 관리 화면 (CRUD 동작) 
+
+<img width="1874" height="699" alt="Screenshot_7" src="https://github.com/user-attachments/assets/60053754-f450-453f-a62e-771e859d0f1d" />
+
+<br><br>
+
+4. 대화 기록 화면 (이전 대화 불러오기) <br>
+
+<img width="1893" height="611" alt="Screenshot_8" src="https://github.com/user-attachments/assets/ab1eead2-15aa-474a-bddb-843769588784" />
+
+<br>
+
+
+
+
 ### 1) 백엔드 실행
 ```bash
 python -m venv venv
 # Windows: venv\Scripts\activate | Mac/Linux: source venv/bin/activate
 pip install -r requirements.txt
 uvicorn main:app --reload
+
+
