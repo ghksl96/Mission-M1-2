@@ -7,7 +7,10 @@ from schemas import ChatRequest
 from routers.data import calculate_summary
 
 router = APIRouter(prefix="/api/chat", tags=["Chat"])
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(
+    api_key=os.getenv("OPENAI_API_KEY"),
+    base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
+)
 
 @router.post("")
 def chat_with_ai(req: ChatRequest):
@@ -38,8 +41,8 @@ def chat_with_ai(req: ChatRequest):
 
     # 4. OpenAI GPT 호출
     try:
-        response = client.chat.completions.create(
-            model="gpt-4o-mini",
+       response = client.chat.completions.create(
+            model="gemini-2.5-flash",
             messages=[{"role": "system", "content": system_prompt}] + messages
         )
         ai_reply = response.choices[0].message.content
