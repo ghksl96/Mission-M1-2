@@ -48,12 +48,18 @@ def chat_with_ai(req: ChatRequest):
     ]
 
     payload = {
-        "system_instruction": {"parts": [{"text": system_prompt}]},
-        "contents": contents
+    "system_instruction": {"parts": [{"text": system_prompt}]},
+    "contents": contents,
+    "generationConfig": {
+        "maxOutputTokens": 500,
+        "thinkingConfig": {
+            "thinkingBudget": 0
+        }
     }
+}
 
     try:
-        res = httpx.post(url, json=payload, timeout=60.0)
+        res = httpx.post(url, json=payload, timeout=90.0)
         if res.status_code != 200:
             raise HTTPException(status_code=500, detail=f"AI 오류 ({res.status_code}): {res.text}")
         ai_reply = res.json()["candidates"][0]["content"]["parts"][0]["text"]
